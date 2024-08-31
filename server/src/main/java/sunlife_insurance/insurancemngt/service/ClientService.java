@@ -15,5 +15,6 @@ public interface ClientService {
     ClientDto updateClient(Long clientId, ClientDto updateClient);
 
     void deleteClient(Long clientId);
-    
+
+    ClientDto findById(Long clientId);
 }

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Table(name = "insurance_policy")
-public class InsurancePolicy {
+public class Policy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

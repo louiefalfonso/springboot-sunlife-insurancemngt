@@ -18,7 +18,6 @@ public class ClaimServiceImpl implements ClaimService {
     private ClaimRepository claimRepository;
     private ModelMapper modelMapper;
 
-
     // REST API - Create New Claim
     @Override
     public ClaimDto createClaim(ClaimDto claimDto) {

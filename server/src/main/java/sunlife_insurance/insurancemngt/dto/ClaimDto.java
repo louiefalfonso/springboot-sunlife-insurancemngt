@@ -1,12 +1,9 @@
 package sunlife_insurance.insurancemngt.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sunlife_insurance.insurancemngt.entity.InsurancePolicy;
+import sunlife_insurance.insurancemngt.entity.Policy;
 
 import java.time.LocalDate;
 
@@ -20,7 +17,7 @@ public class ClaimDto {
     private LocalDate claimDate;
     private String claimStatus;
     private String description;
-    private InsurancePolicy policy;
+    private Policy policy;
 
     public String getClaimNumber() {
         return claimNumber;
@@ -38,7 +35,7 @@ public class ClaimDto {
         return description;
     }
 
-    public InsurancePolicy getPolicy() {
+    public Policy getPolicy() {
         return policy;
     }
 }

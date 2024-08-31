@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import sunlife_insurance.insurancemngt.dto.ClientDto;
 import sunlife_insurance.insurancemngt.entity.Client;
+import sunlife_insurance.insurancemngt.exception.ResourceNotFoundException;
 import sunlife_insurance.insurancemngt.repository.ClientRepository;
 import sunlife_insurance.insurancemngt.service.ClientService;
 
@@ -67,4 +68,15 @@ public class ClientServiceImpl implements ClientService {
                 ()-> new RuntimeException("Client doesn't exist with given id:" + clientId));
         clientRepository.deleteById(clientId);
     }
+
+
+
+
+    @Override
+    public ClientDto findById(Long clientId) {
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new ResourceNotFoundException("Client ", "clientId", "" + clientId));
+        return modelMapper.map(client, ClientDto.class);
+    }
+
 }

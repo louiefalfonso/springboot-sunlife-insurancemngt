@@ -33,7 +33,7 @@ public class Claim {
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private InsurancePolicy policy;
+    private Policy policy;
 
 
     //Getters & Setters
@@ -77,11 +77,11 @@ public class Claim {
         this.description = description;
     }
 
-    public InsurancePolicy getPolicy() {
+    public Policy getPolicy() {
         return policy;
     }
 
-    public void setPolicy(InsurancePolicy policy) {
+    public void setPolicy(Policy policy) {
         this.policy = policy;
     }
 }
