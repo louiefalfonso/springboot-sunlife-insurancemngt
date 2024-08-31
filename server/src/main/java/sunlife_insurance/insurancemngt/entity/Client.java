@@ -45,6 +45,7 @@ public class Client {
     private String address;
 
     //Getters & Setters
+
     public Long getId() {
         return id;
     }
