@@ -15,5 +15,8 @@ public interface ClaimService {
     ClaimDto updateClaim(Long claimId, ClaimDto updateClient);
 
     void  deleteClaim(Long claimId);
-    
+
+
+
+
 }
