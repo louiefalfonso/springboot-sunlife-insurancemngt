@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "insurance_policy")
+@Table(name = "policies")
 public class Policy {
 
     @Id
