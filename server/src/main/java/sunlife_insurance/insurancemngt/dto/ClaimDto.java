@@ -1,5 +1,6 @@
 package sunlife_insurance.insurancemngt.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +14,16 @@ import java.time.LocalDate;
 public class ClaimDto {
 
     private Long id;
+
     private String claimNumber;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     private LocalDate claimDate;
+
     private String claimStatus;
+
     private String description;
+
     private Policy policy;
 
     public String getClaimNumber() {

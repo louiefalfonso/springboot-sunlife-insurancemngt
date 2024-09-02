@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin("*")
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/policies")
+@RequestMapping("/api/v1/policies")
 public class PolicyController {
 
     @Autowired

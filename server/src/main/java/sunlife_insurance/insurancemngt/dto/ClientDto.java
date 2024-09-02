@@ -1,6 +1,7 @@
 package sunlife_insurance.insurancemngt.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +13,20 @@ import java.time.LocalDate;
 public class ClientDto {
 
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     private LocalDate dateOfBirth;
+
     private String phoneNumber;
+
     private String notes;
-    private String password;
+
+    private String email;
+
     private String address;
 
     public String getLastName() {
@@ -36,8 +45,8 @@ public class ClientDto {
         return notes;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
     public String getAddress() {

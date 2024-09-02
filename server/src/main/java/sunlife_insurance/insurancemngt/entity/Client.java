@@ -38,8 +38,8 @@ public class Client {
     @Column(name = "notes")
     private String notes;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "address")
     private String address;
@@ -94,12 +94,12 @@ public class Client {
         this.notes = notes;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

@@ -1,5 +1,6 @@
 package sunlife_insurance.insurancemngt.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Claim {
     @Column(name = "claimNumber")
     private String claimNumber;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     @Column(name = "claimDate")
     private LocalDate claimDate;
 

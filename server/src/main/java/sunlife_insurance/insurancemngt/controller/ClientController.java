@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin("*")
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/clients")
+@RequestMapping("/api/v1/clients")
 public class ClientController {
 
     @Autowired
@@ -54,12 +54,12 @@ public class ClientController {
                 .orElseThrow(()-> new RuntimeException("Client does not exist with id: " + id));
 
         updateClient.setFirstName(clientDetails.getFirstName());
-        updateClient.setLastName(clientDetails.getFirstName());
+        updateClient.setLastName(clientDetails.getLastName());
         updateClient.setDateOfBirth(clientDetails.getDateOfBirth());
         updateClient.setPhoneNumber(clientDetails.getPhoneNumber());
         updateClient.setAddress(clientDetails.getAddress());
         updateClient.setNotes(clientDetails.getNotes());
-        updateClient.setPassword(clientDetails.getPassword());
+        updateClient.setEmail(clientDetails.getEmail());
 
         clientRepository.save(updateClient);
         return ResponseEntity.ok(updateClient);

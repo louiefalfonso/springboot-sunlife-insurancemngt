@@ -55,7 +55,7 @@ public class ClientServiceImpl implements ClientService {
         client.setAddress(updateClient.getAddress());
         client.setDateOfBirth(updateClient.getDateOfBirth());
         client.setPhoneNumber(updateClient.getPhoneNumber());
-        client.setPassword(updateClient.getPassword());
+        client.setEmail(updateClient.getEmail());
         client.setNotes(updateClient.getNotes());
 
         Client updateClientObj = clientRepository.save(client);

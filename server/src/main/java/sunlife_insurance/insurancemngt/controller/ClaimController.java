@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin("*")
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/claims")
+@RequestMapping("/api/v1/claims")
 public class ClaimController {
 
     @Autowired
