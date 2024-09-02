@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @Builder
 @Table(name = "claims")
 public class Claim {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -30,6 +29,9 @@ public class Claim {
 
     @Column(name = "claimStatus")
     private String claimStatus;
+
+    @Column(name = "claimAmount")
+    private String claimAmount;
 
     @Column(name = "description")
     private String description;
@@ -85,5 +87,13 @@ public class Claim {
 
     public void setPolicy(Policy policy) {
         this.policy = policy;
+    }
+
+    public String getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setClaimAmount(String claimAmount) {
+        this.claimAmount = claimAmount;
     }
 }

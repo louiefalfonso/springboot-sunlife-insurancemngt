@@ -29,11 +29,8 @@ public class PolicyServiceImpl implements PolicyService {
 
     // REST API - Create New Policy
     @Override
-    public PolicyDto createNewPolicy(Long clientId, PolicyDto policyDto) {
-        Client client = modelMapper.map(clientService.getClientById(clientId), Client.class);
+    public PolicyDto createNewPolicy(PolicyDto policyDto) {
         Policy policy = modelMapper.map(policyDto, Policy.class);
-        policy.setClient(client);
-
         Policy savedPolicy = policyRepository.save(policy);
         return modelMapper.map(savedPolicy, PolicyDto.class);
 
@@ -68,7 +65,7 @@ public class PolicyServiceImpl implements PolicyService {
         policy.setPremium(updatePolicy.getPremium());
         policy.setStartDate(updatePolicy.getStartDate());
         policy.setEndDate(updatePolicy.getEndDate());
-        policy.setClient(updatePolicy.getClient());
+        policy.setClient(modelMapper.map(updatePolicy.getClient(), Client.class));
 
         Policy updatePolicyObj = policyRepository.save(policy);
         return modelMapper.map(updatePolicyObj, PolicyDto.class);

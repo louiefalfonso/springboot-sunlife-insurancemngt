@@ -24,12 +24,11 @@ public class PolicyController {
 
 
     //POST New Policy REST API
-    @PostMapping("/{ClientId}")
-    public ResponseEntity<PolicyDto> createNewPolicy(@PathVariable("ClientId")Long ClientId,
-                                                     @RequestBody PolicyDto policyDto){
-        PolicyDto savedPolicy = policyService.createNewPolicy(ClientId,policyDto);
-        return new ResponseEntity<>(savedPolicy, HttpStatus.CREATED);
-    }
+    @PostMapping
+   public ResponseEntity<PolicyDto> createPolicy(@RequestBody PolicyDto policyDto){
+       PolicyDto savedPolicy = policyService.createNewPolicy(policyDto);
+       return new ResponseEntity<>(savedPolicy, HttpStatus.CREATED);
+   }
 
 
     //GET All Policies REST API
@@ -56,7 +55,7 @@ public class PolicyController {
                 .orElseThrow(()-> new RuntimeException("Policy does not exist with id: " + id));
 
         updatePolicy.setPolicyNumber(policyDetails.getPolicyNumber());
-        updatePolicy.setPolicyType(policyDetails.getPolicyNumber());
+        updatePolicy.setPolicyType(policyDetails.getPolicyType());
         updatePolicy.setCoverageAmount(policyDetails.getCoverageAmount());
         updatePolicy.setPremium(policyDetails.getPremium());
         updatePolicy.setStartDate(policyDetails.getStartDate());
@@ -67,7 +66,6 @@ public class PolicyController {
         return ResponseEntity.ok(updatePolicy);
 
     }
-
 
     //DELETE Policy REST API
     @DeleteMapping("{id}")

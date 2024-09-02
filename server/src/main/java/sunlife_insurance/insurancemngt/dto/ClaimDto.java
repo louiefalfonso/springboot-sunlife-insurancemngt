@@ -22,6 +22,8 @@ public class ClaimDto {
 
     private String claimStatus;
 
+    private String claimAmount;
+
     private String description;
 
     private Policy policy;
@@ -45,4 +47,6 @@ public class ClaimDto {
     public Policy getPolicy() {
         return policy;
     }
+
+    public String getClaimAmount(){ return  claimAmount;}
 }

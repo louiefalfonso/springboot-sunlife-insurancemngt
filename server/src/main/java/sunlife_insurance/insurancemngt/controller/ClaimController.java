@@ -56,6 +56,7 @@ public class ClaimController {
         updateClaim.setClaimDate(claimDetails.getClaimDate());
         updateClaim.setClaimNumber(claimDetails.getClaimNumber());
         updateClaim.setDescription(claimDetails.getDescription());
+        updateClaim.setClaimAmount(claimDetails.getClaimAmount());
         updateClaim.setPolicy(claimDetails.getPolicy());
 
         claimRepository.save(updateClaim);

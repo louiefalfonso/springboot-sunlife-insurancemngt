@@ -1,12 +1,12 @@
 package sunlife_insurance.insurancemngt.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -21,21 +21,23 @@ public class Policy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "policy_number", unique = true)
+    @Column(name = "policy_number")
     private String policyNumber;
 
     @Column(name = "policy_type")
     private String policyType;
 
     @Column(name = "coverage_amount")
-    private BigDecimal coverageAmount;
+    private String coverageAmount;
 
     @Column(name = "premium")
-    private BigDecimal premium;
+    private String premium;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     @Column(name = "start_date")
     private LocalDate startDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     @Column(name = "end_date")
     private LocalDate endDate;
 
@@ -68,19 +70,19 @@ public class Policy {
         this.policyType = policyType;
     }
 
-    public BigDecimal getCoverageAmount() {
+    public String getCoverageAmount() {
         return coverageAmount;
     }
 
-    public void setCoverageAmount(BigDecimal coverageAmount) {
+    public void setCoverageAmount(String coverageAmount) {
         this.coverageAmount = coverageAmount;
     }
 
-    public BigDecimal getPremium() {
+    public String getPremium() {
         return premium;
     }
 
-    public void setPremium(BigDecimal premium) {
+    public void setPremium(String premium) {
         this.premium = premium;
     }
 

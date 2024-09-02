@@ -54,6 +54,7 @@ public class ClaimServiceImpl implements ClaimService {
         claim.setClaimDate(updateClaim.getClaimDate());
         claim.setClaimStatus(updateClaim.getClaimStatus());
         claim.setDescription(updateClaim.getDescription());
+        claim.setClaimAmount(updateClaim.getClaimAmount());
         claim.setPolicy(updateClaim.getPolicy());
 
         Claim updateClaimObj = claimRepository.save(claim);
