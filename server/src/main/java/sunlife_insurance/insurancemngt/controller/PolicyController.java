@@ -74,7 +74,6 @@ public class PolicyController {
         return ResponseEntity.ok("Policy Deleted Successfully");
     }
 
-
     @GetMapping("/")
     public ResponseEntity<List<PolicyDto>> getAllClaimsByPolicy(){
         return new ResponseEntity<List<PolicyDto>>(policyService.getAllPolicies(),HttpStatus.OK);
