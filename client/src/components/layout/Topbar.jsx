@@ -60,7 +60,7 @@ const Topbar = ({ toggleSidebarCollapse }) => {
          <div className="flex items-center gap-4">
            <Link
              onClick={handleLogout}
-             className="flex items-center gap-2 text-red-600 dark:text-white"
+             className="flex items-center gap-2 text-yellow-500 dark:text-white"
            >
              <svg
                xmlns="http://www.w3.org/2000/svg"
