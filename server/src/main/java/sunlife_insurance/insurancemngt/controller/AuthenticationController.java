@@ -15,7 +15,7 @@ import sunlife_insurance.insurancemngt.service.JwtService;
 import java.util.Optional;
 
 @CrossOrigin("*")
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1/auth")
 @RestController
 public class AuthenticationController {
 
@@ -28,7 +28,7 @@ public class AuthenticationController {
         this.authenticationService = authenticationService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         User registeredUser = authenticationService.signup(registerUserDto);
 

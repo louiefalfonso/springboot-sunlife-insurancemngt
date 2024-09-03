@@ -36,10 +36,10 @@ public class SecurityConfiguration {
 
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers(HttpMethod.POST, "/api/v1/auth**").permitAll()
+                        authorize.requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/v1/**").permitAll()
-                                .requestMatchers("/api/**").permitAll()
-                                .requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/api/v1/**").permitAll()
+                                .requestMatchers("/api/v1/auth/**").permitAll()
                                 .anyRequest().authenticated()
 
                 ).sessionManagement(session -> session

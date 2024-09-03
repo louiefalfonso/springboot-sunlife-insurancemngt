@@ -11,7 +11,7 @@ import sunlife_insurance.insurancemngt.service.UserService;
 
 import java.util.List;
 
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1/auth/users")
 @RestController
 public class UserController {
 
@@ -32,8 +32,8 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> allUsers() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         List <User> users = userService.allUsers();
-
         return ResponseEntity.ok(users);
     }
 
