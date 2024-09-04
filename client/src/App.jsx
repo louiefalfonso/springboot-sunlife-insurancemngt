@@ -4,6 +4,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import ClientsPage from "./pages/ClientsPage";
 import ClaimsPage from "./pages/ClaimsPage";
+import PoliciesPage from "./pages/PoliciesPage";
+import ClaimPage from "./pages/claims/[...id]";
 
 function App() {
 
@@ -16,8 +18,11 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/claims" element={<ClaimsPage />} />
+          <Route path="/claims/:id" element={<ClaimPage/>} />
+
           <Route path="/clients" element={<ClientsPage />} />
-          <Route path="/claims" element={<ClaimsPage/>} />
+          <Route path="/policies" element={<PoliciesPage />} />
         </Routes>
       </main>
     </>
