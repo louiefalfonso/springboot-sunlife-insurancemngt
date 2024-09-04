@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import ProtectedRoute from "./services/ProtectedRoute"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -9,6 +10,8 @@ import ClaimPage from "./pages/claims/[...id]";
 
 function App() {
 
+   const token = localStorage.getItem("token"); 
+
   return (
     <>
       <main className="w-full min-h-screen bg-[#f3f4f6] ">
@@ -17,12 +20,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/claims" element={<ClaimsPage />} />
-          <Route path="/claims/:id" element={<ClaimPage/>} />
+          <Route path="/dashboard" element={ <ProtectedRoute token={token}><Dashboard /></ProtectedRoute>} />
+          <Route path="/claims" element={ <ProtectedRoute token={token}><ClaimsPage /></ProtectedRoute>} />
+          <Route path="/claims/:id" element={<ProtectedRoute token={token}><ClaimPage/></ProtectedRoute>} />
 
-          <Route path="/clients" element={<ClientsPage />} />
-          <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/clients" element={<ProtectedRoute token={token}><ClientsPage /></ProtectedRoute>} />
+          <Route path="/policies" element={<ProtectedRoute token={token}><PoliciesPage /></ProtectedRoute>} />
         </Routes>
       </main>
     </>

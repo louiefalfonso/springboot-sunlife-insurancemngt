@@ -4,7 +4,7 @@ const API_BASE_URL = import.meta.env.VITE_BASE_URI_CLAIMS;
 
 const ClaimService = {
 
-  createClaim(id) {
+  addNewClaim(id) {
     return axios.post(API_BASE_URL, id);
   },
 
@@ -27,4 +27,4 @@ const ClaimService = {
 };
 
 
-export default ClaimService
+export default ClaimService;

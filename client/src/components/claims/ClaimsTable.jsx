@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Modal from "../layout/Modal";
-import { createPortal } from "react-dom";
-import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import ClaimService from "../../services/ClaimService.js"
-import AddNewClaim from "./AddNewClaim.jsx";
+import ClaimService from "../../services/ClaimService.js";
 
-const Claims = () => {
+const ClaimsTable = () => {
     const [claims, setClaims] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const toggleModal = () => {
-      setIsModalOpen(!isModalOpen);
-    };
 
     useEffect(() => {
       const fetchClaims = async () => {
@@ -26,18 +18,19 @@ const Claims = () => {
       fetchClaims();
     }, []);
 
-    const getStatusColor = (claimStatus) => {
-      switch (claimStatus) {
-        case "Rejected":
-          return "bg-danger text-white";
-        case "Approved":
-          return "bg-success text-white";
-        case "In-Progress":
-          return "bg-purple text-white";
-        default:
-          return "bg-info text-white dark:bg-darkmuted";
-      }
-    };  
+     const getStatusColor = (claimStatus) => {
+       switch (claimStatus) {
+         case "Rejected":
+           return "bg-danger text-white";
+         case "Approved":
+           return "bg-success text-white";
+         case "In-Progress":
+           return "bg-purple text-white";
+         default:
+           return "bg-info text-white dark:bg-darkmuted";
+       }
+     };  
+
 
 
   return (
@@ -47,13 +40,14 @@ const Claims = () => {
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">
               <h2 className="font-bold">Claim List</h2>
-              <button
-                type="button"
-                onClick={toggleModal}
-                className="btn py-1 px-3.5 text-xs bg-warning border border-warning rounded-md text-black transition-all duration-300 hover:bg-warning/[0.85] hover:border-warning/[0.85]"
-              >
-                + Add Claim
-              </button>
+              <Link to="/claims">
+                <button
+                  type="button"
+                  className="btn py-1 px-3.5 text-xs bg-info border border-info border-info rounded-md text-white transition-all duration-300 hover:bg-info/[0.85] hover:border-info/[0.85]"
+                >
+                  View Full List
+                </button>
+              </Link>
             </div>
             <div className="overflow-auto">
               <table className="min-w-[640px] w-full mt-4 table-striped">
@@ -64,7 +58,6 @@ const Claims = () => {
                     <th>Status</th>
                     <th>Claim Amout</th>
                     <th>Policy Number</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody className="text-center">
@@ -84,16 +77,6 @@ const Claims = () => {
                       </td>
                       <td>£{claim.claimAmount}</td>
                       <td>{claim.policy?.policyNumber}</td>
-                      <td>
-                        <Link to={`/claims/${claim.id}`}>
-                          <button
-                            type="button"
-                            className="btn py-1 px-3.5 text-xs bg-black border border-black rounded-md text-white transition-all duration-300 hover:bg-black/[0.85] hover:border-black/[0.85]"
-                          >
-                            View Details
-                          </button>
-                        </Link>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -102,22 +85,8 @@ const Claims = () => {
           </div>
         </div>
       </div>
-      {isModalOpen &&
-        createPortal(
-          <Modal
-            isOpen={isModalOpen}
-            toggleModal={toggleModal}
-            title="Create New Claim"
-            divClass="flex items-start justify-center min-h-screen px-4"
-            content={<AddNewClaim toggleModal={toggleModal} />}
-            sizeClass="relative w-full max-w-lg p-0 my-8 overflow-hidden bg-white border rounded-lg border-black/10 dark:bg-darklight dark:border-darkborder"
-            spaceClass="p-5 space-y-4"
-          />,
-          document.body
-        )}
-      <Toaster duration={12000} />
     </>
   );
 };
 
-export default Claims;
+export default ClaimsTable;

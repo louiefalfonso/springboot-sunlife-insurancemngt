@@ -38,7 +38,18 @@ const ClaimDetails = () => {
        fetchCurrentClaim();
      }, [id]);
 
-
+       const getStatusColor = (claimStatus) => {
+         switch (claimStatus) {
+           case "Rejected":
+             return "bg-danger text-white";
+           case "Approved":
+             return "bg-success text-white";
+           case "In-Progress":
+             return "bg-purple text-white";
+           default:
+             return "bg-info text-white dark:bg-darkmuted";
+         }
+       };
 
   return (
     <>
@@ -72,7 +83,13 @@ const ClaimDetails = () => {
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Claim Status:</td>
-                        <td>{currentClaim.claimStatus}</td>
+                        <td
+                          className={`${getStatusColor(
+                            currentClaim.claimStatus
+                          )} inline-flex items-center rounded-full text-xs justify-center px-1.5 py-0.5 mt-4`}
+                        >
+                          {currentClaim.claimStatus}
+                        </td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Claim Amount:</td>
@@ -88,7 +105,7 @@ const ClaimDetails = () => {
                         <td>
                           <button
                             type="button"
-                            //onClick={toggleUpdateModal}
+                            onClick={toggleUpdateModal}
                             className="btn py-1 px-3.5  mr-2 text-xs bg-info border border-info border-info rounded-md text-white transition-all duration-300 hover:bg-info/[0.85] hover:border-info/[0.85]"
                           >
                             Update
@@ -120,27 +137,34 @@ const ClaimDetails = () => {
                     <tbody>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Policy Number:</td>
-                        <td>{currentClaim.policy.policyNumber}</td>
+                        <td>{currentClaim.policy?.policyNumber}</td>
+                      </tr>
+                      <tr className="ltr:text-left rtl:text-right">
+                        <td className="font-bold">Policy Holder:</td>
+                        <td>
+                          {currentClaim.policy?.client?.firstName}{" "}
+                          {currentClaim.policy?.client?.lastName}
+                        </td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Policy Type:</td>
-                        <td>{currentClaim.policy.policyType}</td>
+                        <td>{currentClaim.policy?.policyType}</td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Coverage Amount:</td>
-                        <td>£{currentClaim.policy.coverageAmount}</td>
+                        <td>£{currentClaim.policy?.coverageAmount}</td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Premium Amount:</td>
-                        <td>£{currentClaim.policy.premium}</td>
+                        <td>£{currentClaim.policy?.premium}</td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Start Date:</td>
-                        <td>{currentClaim.policy.startDate}</td>
+                        <td>{currentClaim.policy?.startDate}</td>
                       </tr>
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">End Date:</td>
-                        <td>{currentClaim.policy.endDate}</td>
+                        <td>{currentClaim.policy?.endDate}</td>
                       </tr>
                     </tbody>
                   </table>

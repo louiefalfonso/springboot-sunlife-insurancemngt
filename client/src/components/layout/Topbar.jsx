@@ -5,7 +5,7 @@ import { toast, Toaster } from "react-hot-toast";
 
 const Topbar = ({ toggleSidebarCollapse }) => {
 
-    const API_BASE_URL = import.meta.env.VITE_BASE_URI_DEV;
+    const API_BASE_URL = import.meta.env.VITE_BASE_URI_AUTH;
 
     const handleLogout = async () => {
       try {
@@ -14,7 +14,7 @@ const Topbar = ({ toggleSidebarCollapse }) => {
           toast.error("You are not logged in.");
           return;
         }
-        const response = await axios.post(`${API_BASE_URL}/auth/logout`, {
+        const response = await axios.post(`${API_BASE_URL}/logout`, {
           token,
         });
         localStorage.removeItem("token");
