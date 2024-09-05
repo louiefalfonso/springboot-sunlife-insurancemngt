@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import ClaimService from "../../services/ClaimService";
+import ClientService from "../../services/ClientService";
 
-const DeleteClaim = () => {
-  
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [claims, setClaims] = useState([]);
+const DeleteClient = () => {
 
-    useEffect(() => {
-      const fetchClaim = async () => {
-        const response = await ClaimService.getClaimById(id);
-        setClaims(response.data);
-      };
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [clients, setClients] = useState([]);
 
-      fetchClaim();
-    }, [id]);
-
-    const deleteClaim = async (id) => {
-      try {
-        await ClaimService.deleteClaim(id);
-        toast.success("Deleted Claim Successfully!");
-        navigate("/claims");
-      } catch (error) {
-        console.error(error);
-      }
+  useEffect(() => {
+    const fetchClient = async () => {
+      const response = await ClientService.getClientById(id);
+      setClients(response.data);
     };
+    fetchClient();
+  }, [id]);
+
+  const deleteClient = async (id) => {
+    try {
+      await ClientService.deleteClient(id);
+      toast.success("Deleted Client Successfully!");
+      navigate("/clients");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -42,16 +41,16 @@ const DeleteClaim = () => {
               fill="#F1416C"
             ></path>
           </svg>
-          <h1 className="text-danger text-lg">Delete Claim Details</h1>
+          <h1 className="text-danger text-lg">Delete Client Details</h1>
           <h1 className="text-danger">
-            Are you sure you want to delete this claim?
+            Are you sure you want to delete this client?
             <br />
-            You will not be able to recover this claim information.
+            You will not be able to recover this client information.
           </h1>
         </div>
         <button
           className="btn bg-danger border border-danger rounded-md text-white transition-all duration-300 hover:bg-danger/[0.85] hover:border-danger/[0.85]"
-          onClick={() => deleteClaim(claims.id)}
+          onClick={() => deleteClient(clients.id)}
         >
           Confirm Delete
         </button>
@@ -60,4 +59,4 @@ const DeleteClaim = () => {
   );
 };
 
-export default DeleteClaim;
+export default DeleteClient;

@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import ClientService from "../../services/ClientService.js"
+import AddNewClients from "./AddNewClients.jsx";
 
 const Clients = () => {
     const [clients, setClients] = useState([]);
@@ -25,7 +26,6 @@ const Clients = () => {
         fetchClients();
     }, []);
 
-    
   return (
     <>
       <div className="flex flex-col gap-4 min-h-[calc(100vh-212px)]">
@@ -35,7 +35,7 @@ const Clients = () => {
               <h2 className="font-bold">Client List</h2>
               <button
                 type="button"
-                //onClick={toggleModal}
+                onClick={toggleModal}
                 className="btn py-1 px-3.5 text-xs bg-warning border border-warning rounded-md text-black transition-all duration-300 hover:bg-warning/[0.85] hover:border-warning/[0.85]"
               >
                 + Add Client
@@ -82,6 +82,20 @@ const Clients = () => {
           </div>
         </div>
       </div>
+      {isModalOpen &&
+        createPortal(
+          <Modal
+            isOpen={isModalOpen}
+            toggleModal={toggleModal}
+            title="Create New Client"
+            divClass="flex items-start justify-center min-h-screen px-4"
+            content={<AddNewClients toggleModal={toggleModal} />}
+            sizeClass="relative w-full max-w-lg p-0 my-8 overflow-hidden bg-white border rounded-lg border-black/10 dark:bg-darklight dark:border-darkborder"
+            spaceClass="p-5 space-y-4"
+          />,
+          document.body
+        )}
+      <Toaster duration={12000} />
     </>
   );
 };

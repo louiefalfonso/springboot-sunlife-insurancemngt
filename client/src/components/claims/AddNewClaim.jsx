@@ -46,7 +46,7 @@ const AddNewClaim = () => {
     }
 
     const newClaim = {
-      claimDate: moment(claimDate).format("DD-MM-YYYY"),
+      claimDate: moment(claimDate).format("MM-DD-YYYY"),
       claimNumber,
       claimStatus,
       claimAmount,

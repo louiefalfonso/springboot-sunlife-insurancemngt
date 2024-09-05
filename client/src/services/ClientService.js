@@ -4,7 +4,7 @@ const API_BASE_URL = import.meta.env.VITE_BASE_URI_CLIENTS;
 
 const ClientService = {
 
-  createClient(id) {
+  addNewClient(id) {
     return axios.post(API_BASE_URL, id);
   },
 

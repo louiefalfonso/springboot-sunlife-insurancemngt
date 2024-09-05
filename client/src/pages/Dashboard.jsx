@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Toaster } from "react-hot-toast";
 import MainLayout from "../components/layout/MainLayout";
 import ClaimsTable from "../components/claims/ClaimsTable";
+import ClientTable from "../components/clients/ClientTable";
 
 const Dashboard = () => {
   return (
@@ -20,7 +21,7 @@ const Dashboard = () => {
           </div>
           <div className="gap-6 p-5 bg-white border rounded dark:bg-darklight dark:border-darkborder md:col-span-2 xl:col-span-2 border-black/10">
             <div className="grid grid-cols-1 gap-4">
-             Clients
+             <ClientTable/>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import ClaimService from "../../services/ClaimService.js"
 import AddNewClaim from "./AddNewClaim.jsx";
 
 const Claims = () => {
+
     const [claims, setClaims] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -38,7 +39,6 @@ const Claims = () => {
           return "bg-info text-white dark:bg-darkmuted";
       }
     };  
-
 
   return (
     <>

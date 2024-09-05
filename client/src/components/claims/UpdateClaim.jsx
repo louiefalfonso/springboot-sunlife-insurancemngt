@@ -57,6 +57,7 @@ const UpdateClaim = () => {
            const response = await ClaimService.getClaimById(id);
            const update = response.data;
            const parsedDate = moment(update.claimDate, "YYYY-MM-DD");
+           
            setClaimDate(parsedDate);
            setClaimNumber(update.claimNumber);
            setClaimStatus(update.claimStatus);
@@ -87,7 +88,7 @@ const UpdateClaim = () => {
          }
 
          const currentClaim = {
-           claimDate: moment(claimDate).format("DD-MM-YYYY"),
+           claimDate: moment(claimDate).format("MM-DD-YYYY"),
            claimNumber,
            claimStatus,
            claimAmount,
