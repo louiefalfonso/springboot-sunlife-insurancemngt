@@ -31,7 +31,7 @@ const AddNewClients = () => {
     const newClient = {
       firstName,
       lastName,
-      dateOfBirth,
+      dateOfBirth: moment(dateOfBirth).format("MM-DD-YYYY"),
       phoneNumber,
       email,
       address,
@@ -167,10 +167,10 @@ const AddNewClients = () => {
                 htmlFor="notes"
                 className="block text-sm font-medium text-gray-900"
               >
-                Client Notes:
+                Additional Details:
               </label>
               <textarea
-                placeholder="Enter Additional Notes"
+                placeholder="Enter Additional Details"
                 required
                 type="text"
                 className="form-input"

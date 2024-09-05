@@ -3,8 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../layout/Modal";
 import { createPortal } from "react-dom";
 import ClientService from "../../services/ClientService";
+import PolicyService from "../../services/PolicyService";
 import DeleteClient from "./DeleteClient";
 import UpdateClient from "./UpdateClient";
+
 
 const ClientDetails = () => {
   const navigate = useNavigate();
@@ -38,9 +40,7 @@ const ClientDetails = () => {
     fetchCurrentClient();
   }, [id]);
 
-
-
-
+ 
 
   return (
     <>
@@ -57,7 +57,7 @@ const ClientDetails = () => {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 ">
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             {Object.keys(currentClient).length > 0 ? (
               <div className="space-y-4">
@@ -83,6 +83,14 @@ const ClientDetails = () => {
                       <tr className="ltr:text-left rtl:text-right">
                         <td className="font-bold">Phone Number:</td>
                         <td>{currentClient.phoneNumber}</td>
+                      </tr>
+                      <tr className="ltr:text-left rtl:text-right">
+                        <td className="font-bold">Address</td>
+                        <td>{currentClient.address}</td>
+                      </tr>
+                      <tr className="ltr:text-left rtl:text-right">
+                        <td className="font-bold">Additional Details:</td>
+                        <td className="break-words whitespace-normal">{currentClient.notes}</td>
                       </tr>
 
                       <tr className="ltr:text-left rtl:text-right">

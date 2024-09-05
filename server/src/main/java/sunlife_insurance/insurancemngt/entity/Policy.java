@@ -44,6 +44,7 @@ public class Policy {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
+    
 
     //Getters & Setters
     public Integer getId() {

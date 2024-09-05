@@ -24,11 +24,7 @@ const sidebarData = [
     label: "Loans",
     link: "/loans",
   },
-  {
-    id: "plans",
-    label: "Plans",
-    link: "/plans",
-  },
+  
   {
     id: "users",
     label: "Admin Users",

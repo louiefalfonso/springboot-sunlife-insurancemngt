@@ -8,6 +8,7 @@ import ClaimsPage from "./pages/ClaimsPage";
 import PoliciesPage from "./pages/PoliciesPage";
 import ClaimPage from "./pages/claims/[...id]";
 import ClientPage from "./pages/clients/[...id]";
+import PolicyPage from "./pages/policies/[...id]";
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
 
 
           <Route path="/policies" element={<ProtectedRoute token={token}><PoliciesPage /></ProtectedRoute>} />
+          <Route path="/policies/:id" element={<ProtectedRoute token={token}><PolicyPage/></ProtectedRoute>} />
+
         </Routes>
       </main>
     </>

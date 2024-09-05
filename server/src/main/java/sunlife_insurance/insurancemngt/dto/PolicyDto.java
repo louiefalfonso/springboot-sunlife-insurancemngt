@@ -33,5 +33,4 @@ public class PolicyDto {
 
     private ClientDto client;
 
-    private Set<ClaimDto> claims = new HashSet<>();
 }
