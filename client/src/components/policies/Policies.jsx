@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import PolicyService from "../../services/PolicyService.js"
+import AddNewPolicy from "./AddNewPolicy.jsx";
 
 const Policies = () => {
     const [policies, setPolicies] = useState([]);
@@ -34,7 +35,7 @@ const Policies = () => {
               <h2 className="font-bold">Policy List</h2>
               <button
                 type="button"
-                //onClick={toggleModal}
+                onClick={toggleModal}
                 className="btn py-1 px-3.5 text-xs bg-warning border border-warning rounded-md text-black transition-all duration-300 hover:bg-warning/[0.85] hover:border-warning/[0.85]"
               >
                 + Add Policy
@@ -60,7 +61,9 @@ const Policies = () => {
                       <td>{policy.policyNumber}</td>
                       <td>{policy.policyType}</td>
                       <td>£{policy.coverageAmount}</td>
-                      <td>{policy.client.firstName} {policy.client.lastName}</td>
+                      <td>
+                        {policy.client.firstName} {policy.client.lastName}
+                      </td>
 
                       <td>
                         <Link to={`/policies/${policy.id}`}>
@@ -80,6 +83,20 @@ const Policies = () => {
           </div>
         </div>
       </div>
+      {isModalOpen &&
+        createPortal(
+          <Modal
+            isOpen={isModalOpen}
+            toggleModal={toggleModal}
+            title="Create New Policy"
+            divClass="flex items-start justify-center min-h-screen px-4"
+            content={<AddNewPolicy toggleModal={toggleModal} />}
+            sizeClass="relative w-full max-w-lg p-0 my-8 overflow-hidden bg-white border rounded-lg border-black/10 dark:bg-darklight dark:border-darkborder"
+            spaceClass="p-5 space-y-4"
+          />,
+          document.body
+        )}
+      <Toaster duration={12000} />
     </>
   );
 }

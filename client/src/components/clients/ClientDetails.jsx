@@ -3,10 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../layout/Modal";
 import { createPortal } from "react-dom";
 import ClientService from "../../services/ClientService";
-import PolicyService from "../../services/PolicyService";
 import DeleteClient from "./DeleteClient";
 import UpdateClient from "./UpdateClient";
-
 
 const ClientDetails = () => {
   const navigate = useNavigate();
@@ -40,7 +38,6 @@ const ClientDetails = () => {
     fetchCurrentClient();
   }, [id]);
 
- 
 
   return (
     <>

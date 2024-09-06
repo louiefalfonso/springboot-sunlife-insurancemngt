@@ -191,6 +191,7 @@ const AddNewClients = () => {
           </form>
         </div>
       </div>
+      <Toaster duration={12000} />
     </>
   );
 };

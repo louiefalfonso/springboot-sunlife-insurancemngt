@@ -29,7 +29,6 @@ function App() {
           <Route path="/clients" element={<ProtectedRoute token={token}><ClientsPage /></ProtectedRoute>} />
           <Route path="/clients/:id" element={<ProtectedRoute token={token}><ClientPage/></ProtectedRoute>} />
 
-
           <Route path="/policies" element={<ProtectedRoute token={token}><PoliciesPage /></ProtectedRoute>} />
           <Route path="/policies/:id" element={<ProtectedRoute token={token}><PolicyPage/></ProtectedRoute>} />
 

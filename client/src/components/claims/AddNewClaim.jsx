@@ -177,7 +177,7 @@ const AddNewClaim = () => {
             </div>
             <div className="sm:col-span-2">
               <label
-                htmlFor="doctors"
+                htmlFor="clients"
                 className="block text-sm font-medium text-gray-900"
               >
                 Policy Account:
