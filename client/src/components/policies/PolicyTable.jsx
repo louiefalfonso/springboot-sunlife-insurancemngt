@@ -67,7 +67,7 @@ const PolicyTable = () => {
           </div>
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">
-              <h2 className="font-bold">Policy Chart</h2>
+              <h2 className="font-bold">Policy Chart Stats</h2>
             </div>
             <PolicyChart />
           </div>
