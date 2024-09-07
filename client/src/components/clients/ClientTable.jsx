@@ -20,7 +20,7 @@ const ClientTable = () => {
     
   return (
     <>
-      <div className="flex flex-col gap-4 min-h-[calc(100vh-212px)]">
+      <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4">
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">

@@ -34,8 +34,14 @@ const ClaimsTable = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 min-h-[calc(100vh-212px)]">
+      <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
+            <div className="flex items-center justify-between">
+              <h2 className="font-bold">Claim Chart</h2>
+            </div>
+            <ClaimChart />
+          </div>
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">
               <h2 className="font-bold">Claim List</h2>

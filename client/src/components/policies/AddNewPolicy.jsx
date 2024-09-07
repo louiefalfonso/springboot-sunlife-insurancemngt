@@ -16,7 +16,7 @@ const AddNewPolicy = () => {
   const [premium, setPremium] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [clients, setClients]= useState("");
+  const [clients, setClients]= useState([]);
   const [selectedClient, setSelectedClient] = useState(null);
 
   const [error, setError] = useState(null);
@@ -29,8 +29,7 @@ const AddNewPolicy = () => {
   const handleClientSelect = (clientId) =>{
     setSelectedClient(clientId === "" ? "" : clientId);
   }
-
-  
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -222,7 +221,7 @@ const AddNewPolicy = () => {
                 htmlFor="clients"
                 className="block text-sm font-medium text-gray-900"
               >
-                Policy Account:
+                Policy Account Holder:
               </label>
 
               <select
@@ -232,17 +231,26 @@ const AddNewPolicy = () => {
                 value={selectedClient || 0}
                 onChange={(e) => handleClientSelect(parseInt(e.target.value))}
               >
+                <option value={0}>Select a client</option>
                 {clients.map((client) => (
                   <option key={client.id} value={client.id}>
-                    {client.firstName}{" "}
-                    {client.lastName}
+                    {client.firstName} {client.lastName}
                   </option>
                 ))}
               </select>
             </div>
+            <div className="sm:col-span-2">
+              <button
+                type="submit"
+                className="btn w-full py-2 px-4 text-lg bg-warning border border-warning rounded-md text-black transition-all duration-300 hover:bg-warning/[0.85] hover:border-warning/[0.85]"
+              >
+                Create New Policy
+              </button>
+            </div>
           </form>
         </div>
       </div>
+      <Toaster duration={12000} />
     </>
   );
 };

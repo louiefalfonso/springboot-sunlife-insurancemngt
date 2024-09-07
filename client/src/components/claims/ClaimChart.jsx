@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ClaimService from "../../services/ClaimService";
-import {
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Area,
-  AreaChart,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label } from "recharts";
+
 
 const ClaimChart = () => {
   const [claims, setClaims] = useState([]);
@@ -20,7 +13,18 @@ const ClaimChart = () => {
       try {
         const response = await ClaimService.getAllClaims();
         setClaims(response.data);
+
+        const chartData = response.data.map((claim, index) => {
+          return {
+            name: `Claim ${index + 1}`,
+            value: parseFloat(claim.claimAmount),
+            label: claim.claimStatus,
+          };
+        });
+
+        setChartData(chartData);
         setLoading(false);
+        
       } catch (error) {
         console.error(error);
       }
@@ -28,58 +32,47 @@ const ClaimChart = () => {
     fetchClaims();
   }, []);
 
+  // defaultProps error from XAxis & YAxis  Display (Dev Mode Only)
   useEffect(() => {
-    if (claims.length > 0) {
-      const claimCounts = {};
-      claims.forEach((claim) => {
-        const type = claim.claimAmount;
-        if (!claimCounts[type]) {
-          claimCounts[type] = 0;
-        }
-        claimCounts[type]++;
-      });
+    const originalConsoleError = console.error;
+    console.error = (...args) => {
+      if (typeof args[0] === "string" && /defaultProps/.test(args[0])) {
+        return;
+      }
+      originalConsoleError(...args);
+    };
 
-      const newChartData = Object.keys(claimCounts).map((type, index) => ({
-        id: `claim-${index}`, // Generate a unique id for each data point
-        claimAmount: type,
-        count: claimCounts[type],
-      }));
-      setChartData(newChartData);
-    }
-  }, [claims]);
+    return () => {
+      console.error = originalConsoleError;
+    };
+  }, []);
+
+ 
+  
 
   return (
     <>
       <div className="overflow-auto">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart
-              width={500}
-              height={300}
-              data={chartData}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-              stroke="#8884d8"
-              fill="#8884d8"
-            >
+        {chartData.length > 0 ? (
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="claimAmount" />
-              <YAxis />
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="count"
-                stroke="#8884d8"
-                fill="#8884d8"
+              <XAxis
+                dataKey="label"
+                tickFormatter={(tick) => {
+                  const claim = chartData.find((claim) => claim.name === tick);
+                  return claim ? claim.label : tick;
+                }}
               />
-            </AreaChart>
+              <YAxis
+                domain={[0, Math.max(...chartData.map((data) => data.value))]}
+              />
+              <Tooltip />
+              <Bar dataKey="value" fill="#8884d8" />
+            </BarChart>
           </ResponsiveContainer>
+        ) : (
+          <p>No data available</p>
         )}
       </div>
     </>
