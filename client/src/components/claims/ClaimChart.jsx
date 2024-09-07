@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ClaimService from "../../services/ClaimService";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label } from "recharts";
 
-
 const ClaimChart = () => {
   const [claims, setClaims] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,8 +47,6 @@ const ClaimChart = () => {
   }, []);
 
  
-  
-
   return (
     <>
       <div className="overflow-auto">

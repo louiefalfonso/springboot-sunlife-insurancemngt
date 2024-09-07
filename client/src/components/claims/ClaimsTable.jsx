@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Modal from "../layout/Modal";
 import { Link } from "react-router-dom";
 import ClaimService from "../../services/ClaimService.js";
 import ClaimChart from "./ClaimChart.jsx";
@@ -36,12 +35,6 @@ const ClaimsTable = () => {
     <>
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
-            <div className="flex items-center justify-between">
-              <h2 className="font-bold">Claim Chart</h2>
-            </div>
-            <ClaimChart />
-          </div>
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">
               <h2 className="font-bold">Claim List</h2>
@@ -87,6 +80,12 @@ const ClaimsTable = () => {
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
+            <div className="flex items-center justify-between">
+              <h2 className="font-bold">Claim Chart</h2>
+            </div>
+            <ClaimChart />
           </div>
         </div>
       </div>
