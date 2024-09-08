@@ -1,4 +1,4 @@
-# Sunlife Corp. Insurance Policy Management
+# Sunlife Financial Insurance Policy Management System using Spring Boot 3 & Spring Security 6
 
 **A cloud-based insurance policy management solution built with modern web technologies.**
 
