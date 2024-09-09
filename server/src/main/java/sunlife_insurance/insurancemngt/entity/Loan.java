@@ -31,5 +31,23 @@ public class Loan {
     @Column(name = "loanStatus")
     private String loanStatus;
 
+    @Column(name = "loanAmount")
+    private String loanAmount;
+
+    @Column(name = "loanReason")
+    private String loanReason;
+
+    @Column(name = "reasonOthers")
+    private String reasonOthers;
+
+    @Column(name = "loanGrossValue")
+    private String loanGrossValue;
+
+    @Column(name = "businessAddress")
+    private String businessAddress;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    private Client client;
 
 }
