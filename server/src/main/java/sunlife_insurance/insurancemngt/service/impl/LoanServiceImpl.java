@@ -8,6 +8,7 @@ import sunlife_insurance.insurancemngt.dto.LoanDto;
 import sunlife_insurance.insurancemngt.entity.Client;
 import sunlife_insurance.insurancemngt.entity.Loan;
 import sunlife_insurance.insurancemngt.repository.LoanRepository;
+import sunlife_insurance.insurancemngt.service.ClientService;
 import sunlife_insurance.insurancemngt.service.LoanService;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class LoanServiceImpl implements LoanService {
     private LoanRepository loanRepository;
 
     @Autowired
-    private LoanService loanService;
+    private ClientService clientService;
 
     @Autowired
     private ModelMapper modelMapper;

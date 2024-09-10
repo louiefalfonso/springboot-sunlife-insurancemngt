@@ -29,6 +29,7 @@ public class LoanController {
         return new ResponseEntity<>(savedLoan, HttpStatus.CREATED);
     }
 
+
     //GET All Loans REST API
     @GetMapping
     public ResponseEntity<List<LoanDto>> getAllLoans(){

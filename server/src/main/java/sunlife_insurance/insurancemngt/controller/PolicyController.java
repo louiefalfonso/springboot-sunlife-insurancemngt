@@ -76,7 +76,7 @@ public class PolicyController {
 
     @GetMapping("/")
     public ResponseEntity<List<PolicyDto>> getAllClaimsByPolicy(){
-        return new ResponseEntity<List<PolicyDto>>(policyService.getAllPolicies(),HttpStatus.OK);
+        return new ResponseEntity<>(policyService.getAllPolicies(), HttpStatus.OK);
     }
 
 }
