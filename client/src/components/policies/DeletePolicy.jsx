@@ -55,6 +55,7 @@ const DeletePolicy = () => {
           Confirm Delete
         </button>
       </div>
+      <Toaster duration={12000} />
     </>
   );
 };
