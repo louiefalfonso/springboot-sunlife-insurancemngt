@@ -12,9 +12,6 @@ public interface LoanService {
 
     LoanDto getLoanById(Long loanId);
 
-    //LoanDto updateLoan(Long loadId, LoanDto updateLoan);
-
-    // REST API - Update Loan
     LoanDto updateLoan(Long loadId, LoanDto updateLoan);
 
     void deleteLoan(Long loanId);
