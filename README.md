@@ -17,3 +17,10 @@ This project is an implementation of a RESTful API for managing insurance polici
 * Retrieving a list of all claim
 * Retrieving a list of all claim for a client
 * Authenticating users and generating JWT tokens for authorization
+
+### Tech Stack
+
+* **Frontend:** React, Vite, Tailwind CSS
+* **Database:** Postgres
+* **Backend:**  Spring Boot Web, Spring Data JPA, Lombok, Spring Security 6, JWT (Json Web Token), Maven
+* **Deployment:** Docker, Github Actions, Netlify, Render
