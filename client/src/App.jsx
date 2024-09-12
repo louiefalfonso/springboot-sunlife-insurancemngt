@@ -10,6 +10,7 @@ import ClaimPage from "./pages/claims/[...id]";
 import ClientPage from "./pages/clients/[...id]";
 import PolicyPage from "./pages/policies/[...id]";
 import LoansPage from "./pages/LoansPage";
+import LoanPage from "./pages/loans/[...id]";
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
           <Route path="/policies/:id" element={<ProtectedRoute token={token}><PolicyPage/></ProtectedRoute>} />
 
           <Route path="/loans" element={<ProtectedRoute token={token}><LoansPage/></ProtectedRoute>} />
+          <Route path="/loans:id" element={<ProtectedRoute token={token}><LoanPage/></ProtectedRoute>} />
+          
 
         </Routes>
       </main>
