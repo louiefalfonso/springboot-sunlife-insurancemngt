@@ -14,7 +14,7 @@ import LoanPage from "./pages/loans/[...id]";
 
 function App() {
 
-   const token = localStorage.getItem("token"); 
+  const token = localStorage.getItem("token"); 
 
   return (
     <>
