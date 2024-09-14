@@ -23,4 +23,4 @@ This project is an implementation of a RESTful API for managing insurance polici
 * **Frontend:** React, Vite, Tailwind CSS
 * **Database:** Postgres
 * **Backend:**  Spring Boot Web, Spring Data JPA, Lombok, Spring Security 6, JWT (Json Web Token), Maven
-* **Deployment:** Docker, Github Actions, Netlify, Render
+* **Deployment:** Docker, Github Actions, Netlify, Render, AWS Elastic Beanstalk, S3 & RDS Postgres
