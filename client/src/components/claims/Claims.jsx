@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import ClaimService from "../../services/ClaimService.js"
 import AddNewClaim from "./AddNewClaim.jsx";
+import CountClaims from "./CountClaims.jsx";
 
 const Claims = () => {
 
@@ -44,6 +45,14 @@ const Claims = () => {
     <>
       <div className="flex flex-col gap-4 min-h-[calc(100vh-212px)]">
         <div className="grid grid-cols-1 gap-4">
+          <div className="gap-5 p-5 bg-white border rounded dark:bg-darklight dark:border-darkborder md:col-span-2 xl:col-span-2 border-black/10">
+            <h2 className="text-base font-semibold text-black dark:text-white/80">
+              Claim Stats
+            </h2>
+            <div className="grid grid-cols-1 gap-4">
+              <CountClaims/>
+            </div>
+          </div>
           <div className="p-5 bg-white border rounded border-black/10 dark:bg-darklight dark:border-darkborder">
             <div className="flex items-center justify-between">
               <h2 className="font-bold">Claim List</h2>

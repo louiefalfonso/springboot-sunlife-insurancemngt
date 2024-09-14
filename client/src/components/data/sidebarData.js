@@ -19,6 +19,7 @@ const sidebarData = [
     label: "Clients",
     link: "/clients",
   },
+  /*
   {
     id: "loans",
     label: "Loans",
@@ -30,6 +31,7 @@ const sidebarData = [
     label: "Admin Users",
     link: "/users",
   },
+  */
 ];
 
 export { sidebarData };
