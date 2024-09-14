@@ -62,7 +62,7 @@ const CountPolicy = () => {
                 )} inline-flex items-center rounded-full text-xs justify-center px-1.5 py-0.5 mt-4`}
               >
                 {" "}
-                {status} Cases
+                {status}
               </p>
             </div>
           ))}
