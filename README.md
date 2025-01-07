@@ -24,8 +24,3 @@ This project is an implementation of a RESTful API for managing insurance polici
 * **Database:** Postgres
 * **Backend:**  Spring Boot Web, Spring Data JPA, Lombok, Spring Security 6, JWT (Json Web Token), Maven
 * **Deployment:** Docker, Github Actions, Netlify, Render, AWS Elastic Beanstalk, S3 & RDS Postgres
-
-### Demo Login:
-https://springboot3-sunlifeinsurance.netlify.app/login<br/>
-email: johmsmith@email.com<br/>
-password: 87TupR5SvUlNtFY8<br/>
